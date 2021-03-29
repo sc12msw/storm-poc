@@ -26,7 +26,7 @@ services:
   supervisor:
     image: storm
     volumes:
-      - ./storm/examples/storm-starter/target:/storm/examples/storm-starter/target
+      - ./target:/target
     container_name: supervisor
     command: "storm supervisor"
     depends_on:
@@ -49,4 +49,5 @@ services:
       - "22"
     links:
       - nimbus
-    external_links
+    external_links:
+      - zookeeper
