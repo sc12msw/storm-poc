@@ -5,8 +5,10 @@ import org.apache.storm.task.TopologyContext
 import org.apache.storm.topology.IRichBolt
 import org.apache.storm.topology.OutputFieldsDeclarer
 import org.apache.storm.tuple.Tuple
-
+import mu.KotlinLogging
+private val logger = KotlinLogging.logger{}
 class WordCountBolt : IRichBolt {
+
     private lateinit var counters: MutableMap<String, Int>
     private var id: Int = 0
     private lateinit var name: String
@@ -28,9 +30,9 @@ class WordCountBolt : IRichBolt {
     }
 
     override fun cleanup() {
-        println("Final word count:::::")
+        logger.info{"Final word count:::::"}
         for ((key, value) in counters) {
-            println("$key-$value")
+            logger.info{"$key-$value"}
         }
     }
 

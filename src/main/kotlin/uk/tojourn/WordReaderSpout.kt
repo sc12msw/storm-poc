@@ -6,8 +6,8 @@ import org.apache.storm.topology.IRichSpout
 import org.apache.storm.topology.OutputFieldsDeclarer
 import org.apache.storm.tuple.Fields
 import org.apache.storm.tuple.Values
-
-
+import mu.KotlinLogging
+private val logger = KotlinLogging.logger{}
 class WordReaderSpout() : IRichSpout {
 
     private val serialVersionUID: Long = 441966625018520917
@@ -19,7 +19,8 @@ class WordReaderSpout() : IRichSpout {
         "Machine Learning",
         "Hello World",
         "World",
-        "Hello"
+        "Hello",
+        "Storm is gravy as a baby"
     )
     private lateinit var collector: SpoutOutputCollector;
     private var isCompleted = false
@@ -44,6 +45,7 @@ class WordReaderSpout() : IRichSpout {
         if (!isCompleted) {
             sentences.map { sentence ->
                 sentence.splitToSequence(" ").forEach { word ->
+                    logger.info("Found $word")
                     collector.emit(Values(word));
                 }
                 isCompleted = true
