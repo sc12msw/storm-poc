@@ -1,10 +1,9 @@
 package uk.tojourn
 
 import org.apache.storm.Config
-//import org.apache.storm.LocalCluster
 import org.apache.storm.topology.ConfigurableTopology
 import org.apache.storm.topology.TopologyBuilder
-import java.lang.Exception
+
 
 class WordCountTopology : ConfigurableTopology() {
 companion object {

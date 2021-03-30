@@ -35,7 +35,7 @@
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-client</artifactId>
             <version>${storm.version}</version>
-              <scope>provided</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.storm</groupId>
@@ -97,13 +97,12 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>uk.tojourn.WordCountTopologyKt</mainClass>
+                            <mainClass>uk.tojourn.WordCountTopology</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-
                 </configuration>
              
             </plugin>
