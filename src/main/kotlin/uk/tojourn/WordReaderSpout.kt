@@ -29,17 +29,11 @@ class WordReaderSpout() : IRichSpout {
     }
 
 
-    override fun close() {
+    override fun close() {}
 
-    }
+    override fun activate() {}
 
-    override fun activate() {
-
-    }
-
-    override fun deactivate() {
-
-    }
+    override fun deactivate() {}
 
     override fun nextTuple() {
         if (!isCompleted) {
@@ -55,13 +49,9 @@ class WordReaderSpout() : IRichSpout {
         }
     }
 
-    override fun ack(p0: Any?) {
+    override fun ack(p0: Any?) {}
 
-    }
-
-    override fun fail(p0: Any?) {
-
-    }
+    override fun fail(p0: Any?) {}
 
     override fun declareOutputFields(declarer: OutputFieldsDeclarer) {
         declarer.declare(Fields("word"));
