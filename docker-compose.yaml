@@ -49,4 +49,5 @@ services:
       - "22"
     links:
       - nimbus
-    external_links
+    external_links:
+      - zookeeper
