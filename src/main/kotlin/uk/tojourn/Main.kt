@@ -17,7 +17,6 @@ fun main(){
         Thread.sleep(10000)
         localCluster.close()
     } catch (error : InterruptedException ) {
-        // TODO Auto-generated catch block
         error.printStackTrace()
         localCluster.close()
     }
