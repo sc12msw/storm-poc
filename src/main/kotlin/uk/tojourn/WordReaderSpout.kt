@@ -43,7 +43,7 @@ class WordReaderSpout() : IRichSpout {
 
     override fun nextTuple() {
         if (!isCompleted) {
-            sentences.map { sentence ->
+            sentences.forEach { sentence ->
                 sentence.splitToSequence(" ").forEach { word ->
                     logger.info("Found $word")
                     collector.emit(Values(word));

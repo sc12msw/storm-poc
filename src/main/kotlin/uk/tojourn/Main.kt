@@ -5,9 +5,10 @@ import org.apache.storm.LocalCluster
 import org.apache.storm.topology.TopologyBuilder 
 
 fun main(){
-    val builder = TopologyBuilder()
-    builder.setSpout("word-reader", WordReaderSpout())
-    builder.setBolt("word-counter", WordCountBolt(), 1).shuffleGrouping("word-reader")
+    val builder = TopologyBuilder().apply {
+        setSpout("word-reader", WordReaderSpout())
+        setBolt("word-counter", WordCountBolt(), 1).shuffleGrouping("word-reader")
+    }
     val conf = Config()
     conf.setDebug(true)
     val localCluster = LocalCluster()
